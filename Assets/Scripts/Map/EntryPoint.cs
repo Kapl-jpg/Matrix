@@ -1,4 +1,5 @@
 using Assets.Scripts.Map;
+using General;
 using UnityEngine;
 
 public class EntryPoint : MonoBehaviour
@@ -32,7 +33,7 @@ public class EntryPoint : MonoBehaviour
         entryButton.SetActive(false);
     }
 
-    //Переименовать
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public void GoHome()
     {
         if (_currentPointData.isLocked)
