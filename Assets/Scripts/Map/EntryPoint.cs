@@ -41,6 +41,6 @@ public class EntryPoint : MonoBehaviour
             lockMap.ShowMessage();
             return;
         }
-        sceneLoader.Load(SceneType.Home);
+        sceneLoader.LoadHomeScene();
     }
 }

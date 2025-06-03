@@ -1,4 +1,5 @@
 using Names;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace General
@@ -10,20 +11,30 @@ namespace General
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        public void LoadMainScene()
+        {
+            SceneManager.LoadScene(Constants.SceneNames.MAIN_MENU);
+        }
+
         public void LoadMapScene()
         {
             SceneManager.LoadScene(Constants.SceneNames.MAP);
         }
-        
-        public void Load(SceneType sceneType)
+
+        public void LoadHomeScene()
         {
-            SceneManager.LoadScene(SceneName(sceneType));
+            SceneManager.LoadScene(Constants.SceneNames.HOME);
         }
 
         [Event(EventNames.LoadNotebook)]
         private void LoadNotebookScene()
         {
             SceneManager.LoadScene(Constants.SceneNames.NOTEBOOK);
+        }
+
+        public void QuitApplication()
+        {
+            Application.Quit();
         }
 
         private string SceneName(SceneType sceneType)
