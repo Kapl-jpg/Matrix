@@ -4,7 +4,7 @@ namespace Notebook
 {
     public class ComparingEntries: Subscriber
     {
-        private EntryData _originalData;
+        private readonly EntryData _originalData = new();
         
         [Event(EventNames.ChoseNotebookEntry)]
         private void SetOriginal(EntryData entryData)

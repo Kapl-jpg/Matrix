@@ -9,5 +9,6 @@ namespace Names
         public const string ChoseNotebookEntry = "ChoseNotebookEntry";
         public const string ChoseMergeEntry = "ChoseMergeEntry";
         public const string LockEntry = "LockEntry";
+        public const string NextDay = "NextDay";
     }
 }

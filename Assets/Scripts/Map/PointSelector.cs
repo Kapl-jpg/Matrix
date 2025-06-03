@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Map;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,12 +19,12 @@ namespace Assets.Scripts.Map
 
         private void Start()
         {
-            MapCreater.clearMap += Clear;
+            MapCreator.ClearMap += Clear;
         }
 
         private void OnDestroy()
         {
-            MapCreater.clearMap -= Clear;
+            MapCreator.ClearMap -= Clear;
         }
 
         private void Clear()

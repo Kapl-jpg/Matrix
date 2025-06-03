@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Map;
+using General.Save;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Assets.Scripts.Map
+namespace Map
 {
-    public class MapCreater : MonoBehaviour
+    public class MapCreator : MonoBehaviour
     {
         [SerializeField] private PointSelector pointSelector;
 
@@ -14,10 +16,11 @@ namespace Assets.Scripts.Map
         [SerializeField] private GameObject map;
 
         [SerializeField] private float horizontalMargin;
-        [SerializeField] private float vertiacalMargin;
+        [SerializeField] private float verticalMargin;
 
-        [SerializeField] private List<PointData> datas;
-
+        [SerializeField] private List<PointData> points;
+        [SerializeField] private List<string> names;
+        
         private float _pointWidth;
         private float _pointHeight;
 
@@ -26,8 +29,9 @@ namespace Assets.Scripts.Map
         private float _upperScreenPoint;
         private float _bottomScreenPoint;
 
-        private List<PointData> _dataByPoint = new();
-        public static event Action clearMap;
+        private List<PointData> _dataByPoint;
+        private List<string> _namesByPoint;
+        public static event Action ClearMap;
 
         private void Start()
         {
@@ -37,15 +41,14 @@ namespace Assets.Scripts.Map
 
         public void Clear()
         {
-            clearMap?.Invoke();
+            ClearMap?.Invoke();
         }
 
         public void Rebuild()
         {
             InstancePoints();
         }
-
-
+        
         //Переименовать + разделить
         private void GetParameters()
         {
@@ -63,9 +66,12 @@ namespace Assets.Scripts.Map
         //Улучшить привязку. Сделать привязку через якоря. Убрать костыли с кнопками
         private void InstancePoints()
         {
+            _namesByPoint = new List<string>();
+            _namesByPoint = names;
+            _dataByPoint = new List<PointData>();
             _dataByPoint = GenerateShuffledList();
 
-            for (int i = 0; i < _dataByPoint.Count; i++)
+            foreach (var data in _dataByPoint)
             {
                 var randomPoint = Screen.width;
 
@@ -80,26 +86,32 @@ namespace Assets.Scripts.Map
                 pointRect.SetLocalPositionAndRotation(PointPosition(), Quaternion.identity);
 
                 point.TryGetComponent(out Point pointComponent);
-                _dataByPoint[i].level = Random.Range(1, Constants.MAX_LEVEL + 1);
-
-                pointComponent.SetParameters(_dataByPoint[i],pointSelector);
-                pointSelector.AddPoint(_dataByPoint[i], point);
+                
+                pointComponent.SetParameters(data,pointSelector);
+                pointSelector.AddPoint(data, point);
             }
         }
 
         private List<PointData> GenerateShuffledList()
         {
-            List<PointData> points = datas;
-
-            for (int i = 0; i < Constants.MAX_POINTS - PointsCount(); i++)
-            {
-                points.RemoveAt(Random.Range(0, points.Count));
-            }
-
-            points[Random.Range(0, points.Count)].isLocked = true;
-
+            points[Random.Range(0, points.Count)].IsLocked = true;
+            
+            var randomNames = new System.Random();
+            names.OrderBy(x => randomNames.Next()).ToList();
+            
             System.Random random = new System.Random();
-            return points.OrderBy(x => random.Next()).ToList();
+            return PointsWithData(points).OrderBy(x => random.Next()).ToList();
+        }
+
+        private List<PointData> PointsWithData(List<PointData> shuffledPoints)
+        {
+            for (int i = 0; i < shuffledPoints.Count; i++)
+            {
+                var pointName = names[i];
+                shuffledPoints[i].Name = pointName;
+                shuffledPoints[i].Level = Random.Range(1, 1 + SaveNumberMatches.GetNumber(pointName));
+            }
+            return shuffledPoints;
         }
 
         private Vector3 PointPosition()
@@ -108,14 +120,9 @@ namespace Assets.Scripts.Map
             var halfPointHeight = _pointHeight / 2;
 
             var x = Random.Range(_leftScreenPoint + horizontalMargin + halfPointWidth, _rightScreenPoint - horizontalMargin - halfPointWidth);
-            var y = Random.Range(_bottomScreenPoint + vertiacalMargin + halfPointHeight, _upperScreenPoint - vertiacalMargin - halfPointHeight);
+            var y = Random.Range(_bottomScreenPoint + verticalMargin + halfPointHeight, _upperScreenPoint - verticalMargin - halfPointHeight);
 
             return new Vector3(x, y, 0);
-        }
-
-        private int PointsCount()
-        {
-            return Random.Range(Constants.MIN_POINTS, Constants.MAX_POINTS + 1);
         }
     }
 }

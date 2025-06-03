@@ -1,4 +1,5 @@
 using General;
+using General.Save;
 using UnityEngine;
 
 namespace Notebook
@@ -16,7 +17,7 @@ namespace Notebook
 
         private void SetData()
         {
-            foreach (var notebookEntry in SaveData.Notebooks)
+            foreach (var notebookEntry in SaveNotebookData.NotebookEntries)
             {
                 var entry = Instantiate(notebookEntryPrefab);
                 entry.transform.SetParent(content.transform);

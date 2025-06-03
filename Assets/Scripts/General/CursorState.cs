@@ -1,22 +1,23 @@
+using Enums;
 using UnityEngine;
 
-namespace Home
+namespace General
 {
     public class CursorState : MonoBehaviour
     {
         [SerializeField] private CursorType cursorType;
-        private enum CursorType
+
+        private void Start()
         {
-            Locked,
-            Free
+            SetCursor(cursorType);
         }
-        
-        void Start()
+
+        private void SetCursor(CursorType type)
         {
-            if (cursorType == CursorType.Locked)
+            if (type == CursorType.Locked)
                 Cursor.lockState = CursorLockMode.Locked;
-            
-            if(cursorType == CursorType.Free) 
+
+            if (type == CursorType.Free)
                 Cursor.lockState = CursorLockMode.None;
         }
     }

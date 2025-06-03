@@ -3,7 +3,7 @@ using System;
 namespace Notebook
 {
     [Serializable]
-    public struct EntryData
+    public class EntryData
     {
         public int ID { get; set; }
         public string name;

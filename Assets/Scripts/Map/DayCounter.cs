@@ -1,26 +1,32 @@
+using General.Save;
 using TMPro;
 using UnityEngine;
 
-public class DayCounter : MonoBehaviour
+namespace Map
 {
-    [SerializeField] private TMP_Text dayCounterText;
-
-    private int _dayNumber = 1;
-
-    private void Start()
+    public class DayCounter : MonoBehaviour
     {
-        PrintDay();
-    }
+        [SerializeField] private TMP_Text dayCounterText;
 
-    public void NextDay()
-    {
-        _dayNumber++;
-        PrintDay();
-    }
+        private int _dayNumber;
 
-    private void PrintDay()
-    {
-        dayCounterText.text = $"Δενό: {_dayNumber}";
+        private void Start()
+        {
+            _dayNumber = SaveDay.CurrentDay;
+            PrintDay();
+        }
+
+        public void NextDay()
+        {
+            _dayNumber++;
+            SaveDay.SetDay(_dayNumber);
+            PrintDay();
+        }
+
+        private void PrintDay()
+        {
+            dayCounterText.text = $"Π”ΠµΠ½Ρ: {_dayNumber}";
+        }
     }
 }
 

@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Map;
 using UnityEngine;
 
-namespace Assets.Scripts.Map
+namespace Map
 {
     public class Point : MonoBehaviour
     {

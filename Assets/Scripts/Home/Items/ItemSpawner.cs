@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using General.Save;
 using Interfaces;
 using UnityEngine;
 
@@ -19,7 +20,9 @@ namespace Home.Items
             {
                 var spawnPoint = data.spawnPoints[Random.Range(0, data.spawnPoints.Count)];
                 
-                Instantiate(data.prefab, spawnPoint.position,Quaternion.identity);
+                var item = Instantiate(data.prefab, spawnPoint.position,Quaternion.identity);
+                item.TryGetComponent(out ICollectable collectable);
+                collectable.SetName(SavePointName.PointName);
             }
         }
     }

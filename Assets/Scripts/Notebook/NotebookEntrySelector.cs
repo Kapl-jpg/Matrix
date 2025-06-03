@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using General;
+using General.Save;
 using Names;
 
 namespace Notebook
@@ -16,7 +17,7 @@ namespace Notebook
         [Event(EventNames.LockEntry)]
         private void LockNotebookEntry((EntryData first,EntryData second) data)
         {
-            foreach (var notebookEntry in SaveData.Notebooks)
+            foreach (var notebookEntry in SaveNotebookData.NotebookEntries)
             {
                 if (notebookEntry.ID == data.first.ID || notebookEntry.ID == data.second.ID)
                 {
@@ -28,7 +29,7 @@ namespace Notebook
         [Event(EventNames.ChoseNotebookEntry)]
         private void ChoseNotebookEntry(EntryData entry)
         {
-            foreach (var notebookEntry in SaveData.Notebooks)
+            foreach (var notebookEntry in SaveNotebookData.NotebookEntries)
             {
                 if (notebookEntry.ID == entry.ID)
                 {

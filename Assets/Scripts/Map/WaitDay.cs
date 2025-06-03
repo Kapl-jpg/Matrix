@@ -1,24 +1,26 @@
-using Assets.Scripts.Map;
 using System.Collections;
 using UnityEngine;
 
-public class WaitDay : MonoBehaviour
+namespace Map
 {
-    [SerializeField] private MapCreater mapCreater;
-    [SerializeField] private GameObject unclickableMask;
-    [SerializeField] private float waitTime;
-
-    public void WaitNextDay()
+    public class WaitDay : MonoBehaviour
     {
-        mapCreater.Clear();
-        StartCoroutine(Wait());
-    }
+        [SerializeField] private MapCreator mapCreator;
+        [SerializeField] private GameObject unclickableMask;
+        [SerializeField] private float waitTime;
 
-    private IEnumerator Wait()
-    {
-        unclickableMask.SetActive(true);
-        yield return new WaitForSeconds(waitTime);
-        mapCreater.Rebuild();
-        unclickableMask.SetActive(false);
+        public void WaitNextDay()
+        {
+            mapCreator.Clear();
+            StartCoroutine(Wait());
+        }
+
+        private IEnumerator Wait()
+        {
+            unclickableMask.SetActive(true);
+            yield return new WaitForSeconds(waitTime);
+            mapCreator.Rebuild();
+            unclickableMask.SetActive(false);
+        }
     }
 }

@@ -1,5 +1,8 @@
 using Assets.Scripts.Map;
 using General;
+using General.Save;
+using Map;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 public class EntryPoint : MonoBehaviour
@@ -33,14 +36,16 @@ public class EntryPoint : MonoBehaviour
         entryButton.SetActive(false);
     }
 
-    //�������������
+    //Изменить название метода
     public void GoHome()
     {
-        if (_currentPointData.isLocked)
+        if (_currentPointData.IsLocked)
         {
             lockMap.ShowMessage();
             return;
         }
+        
+        SavePointName.SetName(_currentPointData.Name);
         sceneLoader.LoadHomeScene();
     }
 }

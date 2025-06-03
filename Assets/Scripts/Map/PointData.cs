@@ -1,10 +1,13 @@
 ﻿using System;
 
-[Serializable]
-public class PointData
+namespace Map
 {
-    public string name;
-    public int level = 1;
-    public string discription;
-    public bool isLocked;
+    [Serializable]
+    public class PointData
+    {
+        public string Name { get; set; }
+        public int Level { get; set; }
+        public string description;
+        public bool IsLocked {get;set; }
+    }
 }

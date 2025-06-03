@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Assets.Scripts.Map
+namespace Map
 {
     public class LockMap : MonoBehaviour
     {
