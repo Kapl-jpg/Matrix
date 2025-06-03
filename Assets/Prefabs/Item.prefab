@@ -121,4 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f23efb42d504cd5b0ec87bc8009bb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntryData>k__BackingField:
+    name: "\u0410\u043D\u0442\u043E\u043D"
+    place: "\u0417\u0430\u0432\u043E\u0434"
+    event: "\u041F\u043E\u0445\u0438\u0449\u0435\u043D\u0438\u0435"
+    day: 0
   <Type>k__BackingField: 1

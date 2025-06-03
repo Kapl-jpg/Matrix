@@ -10,6 +10,11 @@ namespace General
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        public void LoadMapScene()
+        {
+            SceneManager.LoadScene(Constants.SceneNames.MAP);
+        }
+        
         public void Load(SceneType sceneType)
         {
             SceneManager.LoadScene(SceneName(sceneType));

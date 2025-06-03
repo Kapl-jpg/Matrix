@@ -1,9 +1,7 @@
-using System;
 using Home.Input;
 using Interfaces;
 using Names;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Home
 {
