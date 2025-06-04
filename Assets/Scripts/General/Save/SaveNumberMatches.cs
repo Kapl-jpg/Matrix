@@ -18,7 +18,7 @@ namespace General.Save
             _numberMatches.Clear();
         }
         
-        public static void AddMath(string name)
+        public static void AddMatch(string name)
         {
             if(!_numberMatches.TryAdd(name, 1))
                 _numberMatches[name]++;

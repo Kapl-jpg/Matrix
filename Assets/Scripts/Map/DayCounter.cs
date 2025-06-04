@@ -1,10 +1,11 @@
 using General.Save;
+using Names;
 using TMPro;
 using UnityEngine;
 
 namespace Map
 {
-    public class DayCounter : MonoBehaviour
+    public class DayCounter : Subscriber
     {
         [SerializeField] private TMP_Text dayCounterText;
 
@@ -16,7 +17,8 @@ namespace Map
             PrintDay();
         }
 
-        public void NextDay()
+        [Event(EventNames.Map.MarkNewDay)]
+        private void MarkNewDay()
         {
             _dayNumber++;
             SaveDay.SetDay(_dayNumber);

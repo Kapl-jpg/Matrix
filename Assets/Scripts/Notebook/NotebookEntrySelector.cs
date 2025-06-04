@@ -7,11 +7,11 @@ namespace Notebook
 {
     public class NotebookEntrySelector : Subscriber
     {
-        private Dictionary<EntryData, NotebookEntry> entries = new();
+        private readonly Dictionary<EntryData, NotebookEntry> _entries = new();
 
         public void AddEntry(EntryData data,NotebookEntry entry)
         {
-            entries.Add(data, entry);
+            _entries.Add(data, entry);
         }
         
         [Event(EventNames.LockEntry)]
@@ -21,7 +21,7 @@ namespace Notebook
             {
                 if (notebookEntry.ID == data.first.ID || notebookEntry.ID == data.second.ID)
                 {
-                    entries[notebookEntry].LockButton();
+                    _entries[notebookEntry].LockButton();
                 }
             }
         }
@@ -33,10 +33,10 @@ namespace Notebook
             {
                 if (notebookEntry.ID == entry.ID)
                 {
-                    entries[notebookEntry]?.ActivateButton();
+                    _entries[notebookEntry]?.ActivateButton();
                     continue;
                 }
-                entries[notebookEntry]?.DeactivateButton();
+                _entries[notebookEntry]?.DeactivateButton();
             }
         }
     }

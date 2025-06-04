@@ -6,7 +6,7 @@ namespace General
 {
     public class SceneLoader : Subscriber
     {
-        public void LoadMainScene()
+        public void LoadMainMenuScene()
         {
             SceneManager.LoadScene(Constants.SceneNames.MAIN_MENU);
         }
@@ -16,12 +16,13 @@ namespace General
             SceneManager.LoadScene(Constants.SceneNames.MAP);
         }
 
-        public void LoadHomeScene()
+        [Event(EventNames.LoadHouseScene)]
+        public void LoadHouseScene()
         {
             SceneManager.LoadScene(Constants.SceneNames.HOME);
         }
 
-        [Event(EventNames.LoadNotebook)]
+        [Event(EventNames.LoadNotebookScene)]
         public void LoadNotebookScene()
         {
             SceneManager.LoadScene(Constants.SceneNames.NOTEBOOK);

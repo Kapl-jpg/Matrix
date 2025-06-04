@@ -1,43 +1,33 @@
-﻿using Assets.Scripts.Map;
+using Map.Points;
+using Names;
 using TMPro;
 using UnityEngine;
 
-namespace Map
+namespace Map.Map
 {
-    public class MapDescription : MonoBehaviour
+    public class MapDescription : Subscriber
     {
         [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private TMP_Text nameText;
         [SerializeField] private TMP_Text levelText;
 
-        private void Start()
-        {
-            PointSelector.activate += ShowDescription;
-            PointSelector.deactivate += HideDescription;
-        }
-
-        private void OnDestroy()
-        {
-            PointSelector.activate -= ShowDescription;
-            PointSelector.deactivate -= HideDescription;
-        }
-
+        [Event(EventNames.Map.EnablePoint)]
         private void ShowDescription(PointData pointData)
         {
-            var description = pointData.description;
             nameText.text = $"Имя: {pointData.Name}";
             levelText.text = $"Уровень: {pointData.Level}";
+            descriptionText.text = pointData.description;
+            
             nameText.gameObject.SetActive(true);
             levelText.gameObject.SetActive(true);
             descriptionText.gameObject.SetActive(true);
-            descriptionText.text = description;
         }
 
+        [Event(EventNames.Map.DisablePoint)]
         private void HideDescription()
         {
-            descriptionText.text = string.Empty;
-            nameText.text = string.Empty;
-            levelText.text = string.Empty;
+            nameText.gameObject.SetActive(false);
+            levelText.gameObject.SetActive(false);
             descriptionText.gameObject.SetActive(false);
         }
     }

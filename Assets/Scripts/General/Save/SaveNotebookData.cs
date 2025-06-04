@@ -26,8 +26,7 @@ namespace General.Save
             entry.Day = SaveDay.CurrentDay;
             _notebookEntries.Add(entry);
         }
-
-
+        
         private static int ID()
         {
             return _notebookEntries.Count;

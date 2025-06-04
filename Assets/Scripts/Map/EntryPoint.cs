@@ -1,51 +1,37 @@
-using Assets.Scripts.Map;
-using General;
 using General.Save;
-using Map;
-using UnityEditor.Overlays;
+using Map.Points;
+using Names;
 using UnityEngine;
 
-public class EntryPoint : MonoBehaviour
+public class EntryPoint : Subscriber
 {
-    [SerializeField] private LockMap lockMap;
-    [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private GameObject entryButton;
 
     private PointData _currentPointData;
 
-    private void Start()
-    {
-        PointSelector.activate += ShowEntryPoint;
-        PointSelector.deactivate += HideEntryPoint;
-    }
-
-    private void OnDestroy()
-    {
-        PointSelector.activate -= ShowEntryPoint;
-        PointSelector.deactivate -= HideEntryPoint;
-    }
-
+    [Event(EventNames.Map.EnablePoint)]
     private void ShowEntryPoint(PointData data)
     {
         entryButton.SetActive(true);
         _currentPointData = data;
     }
-
+    
+    [Event(EventNames.Map.DisablePoint)]
     private void HideEntryPoint()
     {
-        entryButton.SetActive(false);
+        entryButton?.SetActive(false);
     }
-
-    //Изменить название метода
-    public void GoHome()
+    
+    public void EnterHouse()
     {
         if (_currentPointData.IsLocked)
         {
-            lockMap.ShowMessage();
+            EventManager.Publish(EventNames.Map.WaitNextDay,true);
             return;
         }
         
         SavePointName.SetName(_currentPointData.Name);
-        sceneLoader.LoadHomeScene();
+        EventManager.Publish(EventNames.Map.MarkNewDay);
+        EventManager.Publish(EventNames.LoadHouseScene);
     }
 }
