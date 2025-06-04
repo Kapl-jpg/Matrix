@@ -1,12 +1,9 @@
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace General.Save
 {
-    public class SavePointName
+    public static class SavePointName
     {
-        private static string _pointName;
-        public static string PointName => _pointName;
+        private static string _pointName = "Антон";
+        public static string GetName => _pointName;
         
         public static void SetName(string name)
         {

@@ -2,7 +2,7 @@
 {
     public const int MIN_POINTS = 3;
     public const int MAX_POINTS = 5;
-    public const int HOME_SECONDS = 300;
+    public const int TIME_IN_HOUSE = 300;
         
     public struct SceneNames
     { 

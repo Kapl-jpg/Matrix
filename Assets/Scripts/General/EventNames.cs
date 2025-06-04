@@ -11,6 +11,11 @@ namespace Names
         public const string ChoseMergeEntry = "ChoseMergeEntry";
         public const string LockEntry = "LockEntry";
         
+        public struct House
+        {
+            public const string Interact = "Interact";
+        }
+        
         public struct Map
         {
             public const string EnablePoint = "EnablePoint";
