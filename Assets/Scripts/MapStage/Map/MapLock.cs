@@ -1,7 +1,7 @@
 ﻿using Names;
 using UnityEngine;
 
-namespace Map.Map
+namespace MapStage.Map
 {
     public class MapLock : Subscriber
     {

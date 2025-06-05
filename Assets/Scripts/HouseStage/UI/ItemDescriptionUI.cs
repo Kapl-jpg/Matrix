@@ -14,14 +14,14 @@ namespace HouseStage.UI
         
         [SerializeField] private List<ItemDescription> itemDescriptions;
         
-        [Event(EventNames.ShowItemDescription)]
+        [Event(EventNames.House.ShowItemDescription)]
         private void ShowItemDescription(ItemType itemType)
         {
             descriptionPanel.SetActive(true);
             descriptionText.text = DescriptionByType(itemType);
         }
         
-        [Event(EventNames.HideItemDescription)]
+        [Event(EventNames.House.HideItemDescription)]
         private void HideItemDescription()
         {
             descriptionPanel.SetActive(false);

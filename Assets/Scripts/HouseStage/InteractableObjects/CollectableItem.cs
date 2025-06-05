@@ -15,10 +15,8 @@ namespace HouseStage.InteractableObjects
 
         public void Interact()
         {
-            gameObject.SetActive(false);
-            EventManager.Publish(EventNames.AddItem);
             SaveNotebookData.AddData(EntryData);
+            gameObject.SetActive(false);
         }
-
     }
 }

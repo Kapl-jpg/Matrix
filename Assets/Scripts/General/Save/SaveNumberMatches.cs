@@ -5,7 +5,7 @@ namespace General.Save
 {
     public static class SaveNumberMatches
     {
-        private static readonly Dictionary<string, int> _numberMatches = new();
+        private static readonly Dictionary<string, int> NumberMatches = new();
         
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
@@ -15,18 +15,19 @@ namespace General.Save
 
         private static void OnApplicationQuit()
         {
-            _numberMatches.Clear();
+            NumberMatches.Clear();
         }
         
         public static void AddMatch(string name)
         {
-            if(!_numberMatches.TryAdd(name, 1))
-                _numberMatches[name]++;
+            if(!NumberMatches.TryAdd(name, 1))
+                NumberMatches[name]++;
         }
 
         public static int GetNumber(string name)
         {
-            return _numberMatches.GetValueOrDefault(name, 0);
+            return NumberMatches.GetValueOrDefault(name, 0);
         }
+
     }
 }

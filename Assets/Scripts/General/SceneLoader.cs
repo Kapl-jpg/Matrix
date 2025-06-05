@@ -19,7 +19,7 @@ namespace General
         [Event(EventNames.LoadHouseScene)]
         public void LoadHouseScene()
         {
-            SceneManager.LoadScene(Constants.SceneNames.HOME);
+            SceneManager.LoadScene(Constants.SceneNames.HOUSE);
         }
 
         [Event(EventNames.LoadNotebookScene)]

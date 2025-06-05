@@ -1,4 +1,3 @@
-using System;
 using Names;
 using TMPro;
 using UnityEngine;
@@ -32,31 +31,29 @@ namespace Notebook
 
         private void SetText()
         {
-            nameText.text = _entryData.name;
+            nameText.text = _entryData.Name;
             placeText.text = _entryData.place;
-            eventText.text = _entryData.@event;
+            eventText.text = _entryData.eventName;
             dayText.text = _entryData.Day.ToString();
         }
 
-        public void ChoseEntry()
+        public void SelectEntry()
         {
-            EventManager.Publish(EventNames.ChoseNotebookEntry,_entryData);
+            EventManager.Publish(EventNames.Notebook.SelectNotebookEntry,_entryData);
         }
 
         public void MergeEntry()
         {
-            EventManager.Publish(EventNames.ChoseMergeEntry, _entryData);
+            EventManager.Publish(EventNames.Notebook.SelectMergeEntry, _entryData);
         }
         
-        public void ActivateButton()
+        public void ActivateEntry()
         {
-            if(_isLocked) return;
-            
             mainImage.color = activeColor;
             mergeButton.SetActive(false);
         }
 
-        public void DeactivateButton()
+        public void DeactivateEntry()
         {
             if(_isLocked) return;
             
@@ -64,12 +61,17 @@ namespace Notebook
             mergeButton.SetActive(true);
         }
         
-        public void LockButton()
+        public void LockEntry()
         {
             mainImage.color = lockedColor;
-            mainButton.interactable = false;
             mergeButton.SetActive(false);
             _isLocked = true;
+        }
+
+        public void DeactivateFullEntry()
+        {
+            mainImage.color = inactiveColor;
+            mergeButton.SetActive(false);
         }
     }
 }

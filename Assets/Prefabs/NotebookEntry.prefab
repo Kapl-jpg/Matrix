@@ -234,11 +234,11 @@ RectTransform:
   - {fileID: 1369443622709766749}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 70}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &5471666059256305884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 8532503510929418813}
   - component: {fileID: 36823298054796464}
   m_Layer: 5
-  m_Name: EntryContent
+  m_Name: EntryContentButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,7 +710,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7333032111755447100}
         m_TargetAssemblyTypeName: Notebook.NotebookEntry, Assembly-CSharp
-        m_MethodName: ChoseEntry
+        m_MethodName: SelectEntry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

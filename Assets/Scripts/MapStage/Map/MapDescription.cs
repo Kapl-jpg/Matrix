@@ -3,7 +3,7 @@ using Names;
 using TMPro;
 using UnityEngine;
 
-namespace Map.Map
+namespace MapStage.Map
 {
     public class MapDescription : Subscriber
     {

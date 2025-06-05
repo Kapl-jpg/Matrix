@@ -122,8 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EntryData>k__BackingField:
-    name: "\u0410\u043D\u0442\u043E\u043D"
     place: "\u0417\u0430\u0432\u043E\u0434"
-    event: "\u041F\u043E\u0445\u0438\u0449\u0435\u043D\u0438\u0435"
-    day: 0
+    eventName: "\u041F\u0440\u0438\u0448\u0435\u043B\u044C\u0446\u044B"
   <Type>k__BackingField: 1

@@ -2,19 +2,8 @@ namespace Names
 {
     public struct EventNames
     {
-        public const string AddItem = "AddItem";
         public const string LoadNotebookScene = "LoadNotebookScene";
         public const string LoadHouseScene = "LoadHouseScene";
-        public const string ShowItemDescription = "ShowItemDescription";
-        public const string HideItemDescription = "HideItemDescription";
-        public const string ChoseNotebookEntry = "ChoseNotebookEntry";
-        public const string ChoseMergeEntry = "ChoseMergeEntry";
-        public const string LockEntry = "LockEntry";
-        
-        public struct House
-        {
-            public const string Interact = "Interact";
-        }
         
         public struct Map
         {
@@ -29,6 +18,19 @@ namespace Names
             public const string MarkNewDay = "MarkNewDay";
             public const string ShowLockText = "ShowLockText";
             public const string HideLockText = "HideLockText";
+        }
+        
+        public struct House
+        {
+            public const string ShowItemDescription = "ShowItemDescription";
+            public const string HideItemDescription = "HideItemDescription";
+        }
+        
+        public struct Notebook
+        {
+            public const string SelectNotebookEntry = "SelectNotebookEntry";
+            public const string SelectMergeEntry = "SelectMergeEntry";
+            public const string LockEntry = "LockEntry";
         }
     }
 }

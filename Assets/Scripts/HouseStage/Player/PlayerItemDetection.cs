@@ -32,7 +32,7 @@ namespace HouseStage.Player
                 if (_interactable == null)
                 {
                     hit.collider.TryGetComponent(out IInteractable interactable);
-                    EventManager.Publish(EventNames.ShowItemDescription, interactable.Type);
+                    EventManager.Publish(EventNames.House.ShowItemDescription, interactable.Type);
                     _interactable = interactable;
                 }
             }
@@ -40,7 +40,7 @@ namespace HouseStage.Player
             {
                 if (_interactable!=null)
                 {
-                    EventManager.Publish(EventNames.HideItemDescription);
+                    EventManager.Publish(EventNames.House.HideItemDescription);
                     _interactable = null;
                 }
             }

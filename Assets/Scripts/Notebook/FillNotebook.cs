@@ -1,4 +1,4 @@
-using General;
+using System.Collections.Generic;
 using General.Save;
 using UnityEngine;
 
@@ -10,6 +10,7 @@ namespace Notebook
         [SerializeField] private NotebookEntry notebookEntryPrefab;
     
         [SerializeField] private NotebookEntrySelector notebookEntrySelector;
+        
         private void Start()
         {
             SetData();
@@ -17,16 +18,17 @@ namespace Notebook
 
         private void SetData()
         {
+            var entries = new Dictionary<int, NotebookEntry>();
             foreach (var notebookEntry in SaveNotebookData.NotebookEntries)
             {
-                var entry = Instantiate(notebookEntryPrefab);
-                entry.transform.SetParent(content.transform);
+                var entry = Instantiate(notebookEntryPrefab, content.transform, false);
                 entry.TryGetComponent(out RectTransform rectTransform);
-                rectTransform.localScale = Vector3.one;
-                rectTransform.SetLocalPositionAndRotation(Vector2.zero, Quaternion.identity);
+                rectTransform.anchoredPosition = Vector2.zero;
                 entry.SetData(notebookEntry);
-                notebookEntrySelector.AddEntry(notebookEntry, entry);
+                entries.Add(notebookEntry.ID, entry);
             }
+            
+            notebookEntrySelector.CheckEntries(entries);
         }
     }
 }

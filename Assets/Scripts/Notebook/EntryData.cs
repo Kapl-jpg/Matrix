@@ -3,12 +3,13 @@ using System;
 namespace Notebook
 {
     [Serializable]
-    public class EntryData
+    public struct EntryData
     {
         public int ID { get; set; }
-        public string name;
-        public string place;
-        public string @event;
+        public string Name { get; set; }
         public int Day { get; set; }
+        public bool Merged { get; set; }
+        public string place;
+        public string eventName;
     }
 }

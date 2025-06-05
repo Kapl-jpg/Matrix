@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using General;
 using General.Save;
 using Names;
 
@@ -7,36 +6,56 @@ namespace Notebook
 {
     public class NotebookEntrySelector : Subscriber
     {
-        private readonly Dictionary<EntryData, NotebookEntry> _entries = new();
+        private Dictionary<int, NotebookEntry> _dict = new();
 
-        public void AddEntry(EntryData data,NotebookEntry entry)
+        [Event(EventNames.Notebook.LockEntry)]
+        private void LockNotebookEntry((int originalID, int mergeID) data)
         {
-            _entries.Add(data, entry);
-        }
-        
-        [Event(EventNames.LockEntry)]
-        private void LockNotebookEntry((EntryData first,EntryData second) data)
-        {
-            foreach (var notebookEntry in SaveNotebookData.NotebookEntries)
+            for (int i = 0; i < SaveNotebookData.NotebookEntries.Count; i++)
             {
-                if (notebookEntry.ID == data.first.ID || notebookEntry.ID == data.second.ID)
+                if (SaveNotebookData.NotebookEntries[i].ID == data.originalID ||
+                    SaveNotebookData.NotebookEntries[i].ID == data.mergeID)
                 {
-                    _entries[notebookEntry].LockButton();
+                    SaveNotebookData.ChangeMerge(i);
+                    CheckEntries(_dict);
                 }
             }
         }
 
-        [Event(EventNames.ChoseNotebookEntry)]
-        private void ChoseNotebookEntry(EntryData entry)
+        public void CheckEntries(Dictionary<int, NotebookEntry> notebookEntries)
         {
             foreach (var notebookEntry in SaveNotebookData.NotebookEntries)
             {
-                if (notebookEntry.ID == entry.ID)
+                if (notebookEntry.Merged)
                 {
-                    _entries[notebookEntry]?.ActivateButton();
+                    notebookEntries[notebookEntry.ID].LockEntry();
                     continue;
                 }
-                _entries[notebookEntry]?.DeactivateButton();
+                
+                notebookEntries[notebookEntry.ID]?.DeactivateFullEntry();
+            }
+            
+            _dict = notebookEntries;
+        }
+
+        [Event(EventNames.Notebook.SelectNotebookEntry)]
+        private void SelectNotebookEntry(EntryData entryData)
+        {
+            foreach (var notebookEntry in SaveNotebookData.NotebookEntries)
+            {
+                if (notebookEntry.ID == entryData.ID)
+                {
+                    _dict[entryData.ID]?.ActivateEntry();
+                    continue;
+                }
+                
+                if (notebookEntry.Merged)
+                {
+                    _dict[notebookEntry.ID].LockEntry();
+                    continue;
+                }
+                
+                _dict[notebookEntry.ID]?.DeactivateEntry();
             }
         }
     }

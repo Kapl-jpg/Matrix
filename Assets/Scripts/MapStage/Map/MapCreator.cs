@@ -6,7 +6,7 @@ using Names;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Map.Map
+namespace MapStage.Map
 {
     public class MapCreator : Subscriber
     {
@@ -73,15 +73,16 @@ namespace Map.Map
             System.Random random = new System.Random();
             list.OrderBy(x => random.Next()).ToList();
             
-            var housesCount = Random.Range(Constants.MIN_POINTS, Constants.MAX_POINTS);
+            var housesCount = Random.Range(Constants.MIN_POINTS, Constants.MAX_POINTS+1);
             for (var i = 0; i < Constants.MAX_POINTS - housesCount; i++)
             {
                 list.RemoveAt(i);
             }
             
-            list[Random.Range(0, list.Count)].IsLocked = true;
+            SetLock(list);
             
-            names.OrderBy(x => random.Next()).ToList();
+            var shuffledNames = names.OrderBy(x => random.Next()).ToList();
+            names = shuffledNames;
             return PointsWithData(list);
         }
 
@@ -89,11 +90,21 @@ namespace Map.Map
         {
             for (int i = 0; i < shuffledPoints.Count; i++)
             {
-                shuffledPoints[i].Name = names[i];
-                shuffledPoints[i].Level = Random.Range(1, 1 + SaveNumberMatches.GetNumber(names[i]));
+                var shuffledPoint = shuffledPoints[i];
+                shuffledPoint.Name = names[i];
+                shuffledPoint.Level = Random.Range(1, 1 + SaveNumberMatches.GetNumber(names[i]));
+                shuffledPoints[i] = shuffledPoint;
             }
             
             return shuffledPoints;
+        }
+
+        private void SetLock(List<PointData> list)
+        {
+            var lockedIndex = Random.Range(0, list.Count);
+            var temp = list[lockedIndex];
+            temp.IsLocked = true;
+            list[lockedIndex] = temp;
         }
 
         private Vector3 CalculatePointPosition()

@@ -6,7 +6,7 @@ namespace General.Save
 {
     public static class SaveNotebookData
     {
-        private static readonly List<EntryData> _notebookEntries = new();
+        private static List<EntryData> _notebookEntries = new();
         public static List<EntryData> NotebookEntries => _notebookEntries;
         
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -25,6 +25,13 @@ namespace General.Save
             entry.ID = ID();
             entry.Day = SaveDay.CurrentDay;
             _notebookEntries.Add(entry);
+        }
+        
+        public static void ChangeMerge(int index)
+        {
+            var entry = _notebookEntries[index];
+            entry.Merged = true;
+            _notebookEntries[index] = entry;
         }
         
         private static int ID()

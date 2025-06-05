@@ -8,7 +8,7 @@
     { 
         public const string MAIN_MENU = "MainMenuScene";
         public const string MAP = "MapScene";
-        public const string HOME = "HomeScene";
+        public const string HOUSE = "HouseScene";
         public const string NOTEBOOK = "NotebookScene";
     }
 }

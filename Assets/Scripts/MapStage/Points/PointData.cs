@@ -3,7 +3,7 @@
 namespace MapStage.Points
 {
     [Serializable]
-    public class PointData
+    public struct PointData
     {
         public string Name { get; set; }
         public int Level { get; set; }

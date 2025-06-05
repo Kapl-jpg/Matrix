@@ -4,11 +4,13 @@ namespace Interfaces
 {
     public interface ICollectable
     {
-        public EntryData EntryData { get; }
+        public EntryData EntryData { get; set; }
 
         public void SetName(string name)
         {
-            EntryData.name = name;
+            var temp = EntryData;
+            temp.Name = name;
+            EntryData = temp;
         }
     }
 }

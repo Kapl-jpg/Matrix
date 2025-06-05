@@ -4,7 +4,7 @@ using Names;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Map.Map
+namespace MapStage.Map
 {
     public class MapPointSelector : Subscriber
     {
