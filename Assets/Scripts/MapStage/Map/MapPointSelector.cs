@@ -48,7 +48,7 @@ namespace MapStage.Map
             EventManager.Publish(EventNames.Map.EnablePoint, pointData);
         }
 
-        public void DisableAllButtons()
+        public void DisableAllMarkers()
         {
             foreach (var image in _imageByData.Values)
             {
