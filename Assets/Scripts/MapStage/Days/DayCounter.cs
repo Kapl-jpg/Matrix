@@ -9,7 +9,7 @@ namespace MapStage.Days
     {
         [SerializeField] private TMP_Text dayCounterText;
 
-        private int _dayNumber;
+        private int _dayNumber = 1;
 
         private void Start()
         {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using General;
 using MapStage.Points;
 using Names;
 using UnityEngine;
@@ -44,7 +45,7 @@ namespace MapStage.Map
 
                 image.color = disableColor;
             }
-
+            
             EventManager.Publish(EventNames.Map.EnablePoint, pointData);
         }
 
@@ -54,7 +55,7 @@ namespace MapStage.Map
             {
                 image.color = disableColor;
             }
-
+            
             EventManager.Publish(EventNames.Map.DisablePoint);
         }
     }

@@ -8,7 +8,7 @@ namespace MapStage.Map
     public class MapDescription : Subscriber
     {
         [SerializeField] private GameObject description;
-        [SerializeField] private GameObject name;
+        [SerializeField] private new GameObject name;
         [SerializeField] private GameObject level;
         
         [SerializeField] private TMP_Text descriptionText;

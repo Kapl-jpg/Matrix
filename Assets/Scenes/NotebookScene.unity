@@ -481,8 +481,9 @@ GameObject:
   - component: {fileID: 895252165}
   - component: {fileID: 895252164}
   - component: {fileID: 895252163}
+  - component: {fileID: 895252166}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,6 +565,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 895252166}
+        m_TargetAssemblyTypeName: General.ClickButton, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &895252164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,6 +615,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895252161}
   m_CullTransparentMesh: 1
+--- !u!114 &895252166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895252161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d53f43f6a75418db5b95fd0b34af386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1016502350
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +780,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51dfb647e1bc77244a0215ff6725a797, type: 3}
+--- !u!1001 &1171306761
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3742221174817002223, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742221174817002223, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742221174817002223, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742221174817002223, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742221174817002223, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742221174817002223, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742221174817002223, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742221174817002223, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742221174817002223, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742221174817002223, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171465283913906429, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e694a653707e0be4ab41e82d99dc48c1, type: 3}
 --- !u!1 &1183636595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,3 +1717,4 @@ SceneRoots:
   - {fileID: 621700590}
   - {fileID: 1729439398}
   - {fileID: 1027470414}
+  - {fileID: 1171306761}

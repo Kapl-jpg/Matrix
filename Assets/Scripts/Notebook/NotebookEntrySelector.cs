@@ -13,12 +13,11 @@ namespace Notebook
         {
             for (int i = 0; i < SaveNotebookData.NotebookEntries.Count; i++)
             {
-                if (SaveNotebookData.NotebookEntries[i].ID == data.originalID ||
-                    SaveNotebookData.NotebookEntries[i].ID == data.mergeID)
-                {
-                    SaveNotebookData.ChangeMerge(i);
-                    CheckEntries(_dict);
-                }
+                if (SaveNotebookData.NotebookEntries[i].ID != data.originalID &&
+                    SaveNotebookData.NotebookEntries[i].ID != data.mergeID) continue;
+                
+                SaveNotebookData.ChangeMerge(i);
+                CheckEntries(_dict);
             }
         }
 

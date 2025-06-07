@@ -4,7 +4,7 @@ namespace General.Save
 {
     public static class SaveDay
     {
-        private static int _currentDay;
+        private static int _currentDay = 1;
         public static int CurrentDay => _currentDay;
         
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -15,7 +15,7 @@ namespace General.Save
 
         private static void OnApplicationQuit()
         {
-            _currentDay = 0;
+            _currentDay = 1;
         }
 
         public static void SetDay(int day)

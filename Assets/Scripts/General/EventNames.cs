@@ -2,6 +2,7 @@ namespace Names
 {
     public struct EventNames
     {
+        public const string Click = "Click";
         public const string LoadNotebookScene = "LoadNotebookScene";
         public const string LoadHouseScene = "LoadHouseScene";
         

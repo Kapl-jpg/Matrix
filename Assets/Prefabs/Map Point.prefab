@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6591342690151352778}
   - component: {fileID: 7167861319969858136}
   - component: {fileID: -7138949028923548222}
+  - component: {fileID: 462346174838860240}
   m_Layer: 5
   m_Name: Map Point
   m_TagString: Untagged
@@ -133,6 +134,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 462346174838860240}
+        m_TargetAssemblyTypeName: General.ClickButton, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-7138949028923548222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,5 +156,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fb6c1af00dc38944928946beabc587c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &462346174838860240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153235403703044028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d53f43f6a75418db5b95fd0b34af386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
