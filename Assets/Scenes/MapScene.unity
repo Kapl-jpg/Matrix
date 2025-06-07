@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884c78cdbd4192544b39d9c7363b3c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockText: {fileID: 2082687692}
+  lockPanel: {fileID: 1289901184}
 --- !u!114 &273534505
 MonoBehaviour:
   m_ObjectHideFlags: 0

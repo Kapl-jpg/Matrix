@@ -8,7 +8,7 @@ namespace HouseStage.InteractableObjects
     {
         [SerializeField] private Animator animator;
         [SerializeField] private GameObject linkedItem;
-        private static readonly int SwitchAnim = Animator.StringToHash("switch");
+        private static readonly int OpenAnim = Animator.StringToHash("Open");
 
         [field:SerializeField] public ItemType Type { get; set; }
 
@@ -19,7 +19,8 @@ namespace HouseStage.InteractableObjects
 
         private void Switch()
         {
-            animator.SetTrigger(SwitchAnim);
+            gameObject.layer = 0;
+            animator.SetTrigger(OpenAnim);
         }
 
         public void Ready()
