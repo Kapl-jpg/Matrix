@@ -8,6 +8,7 @@ namespace HouseStage.InteractableObjects
     public class ItemSpawnData
     {
         public GameObject prefab;
-        public List<Transform> points;
+        public List<PositionData> points;
+        public string eventName;
     }
 }

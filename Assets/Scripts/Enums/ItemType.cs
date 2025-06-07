@@ -2,11 +2,11 @@ namespace Enums
 {
     public enum ItemType
     {
-        Notebook,
+        Clipboard,
         Photo,
         Picture,
-        Folder,
-        Lever,
-        Door
+        Book,
+        Door,
+        USB
     }
 }

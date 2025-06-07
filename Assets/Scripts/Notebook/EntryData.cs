@@ -9,7 +9,7 @@ namespace Notebook
         public string Name { get; set; }
         public int Day { get; set; }
         public bool Merged { get; set; }
-        public string place;
-        public string eventName;
+        public string Place { get; set; }
+        public string EventName { get; set; }
     }
 }

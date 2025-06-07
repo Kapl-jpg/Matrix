@@ -33,8 +33,8 @@ namespace Notebook
         private void SetText()
         {
             nameText.text = _entryData.Name;
-            placeText.text = _entryData.place;
-            eventText.text = _entryData.eventName;
+            placeText.text = _entryData.Place;
+            eventText.text = _entryData.EventName;
             dayText.text = _entryData.Day.ToString();
         }
 
