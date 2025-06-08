@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using General.Constants;
 using General.Save;
-using Names;
 
 namespace Notebook
 {
@@ -8,7 +8,7 @@ namespace Notebook
     {
         private Dictionary<int, NotebookEntry> _dict = new();
 
-        [Event(EventNames.Notebook.LockEntry)]
+        [Event(Names.Notebook.LOCK_ENTRY)]
         private void LockNotebookEntry((int originalID, int mergeID) data)
         {
             for (int i = 0; i < SaveNotebookData.NotebookEntries.Count; i++)
@@ -37,7 +37,7 @@ namespace Notebook
             _dict = notebookEntries;
         }
 
-        [Event(EventNames.Notebook.SelectNotebookEntry)]
+        [Event(Names.Notebook.SELECT_NOTEBOOK_ENTRY)]
         private void SelectNotebookEntry(EntryData entryData)
         {
             foreach (var notebookEntry in SaveNotebookData.NotebookEntries)

@@ -1,4 +1,4 @@
-using Names;
+using General.Constants;
 using UnityEngine;
 
 namespace General
@@ -7,7 +7,7 @@ namespace General
     {
         public void Click()
         {
-            EventManager.Publish(EventNames.Click);
+            EventManager.Publish(Names.CLICK);
         }
     }
 }

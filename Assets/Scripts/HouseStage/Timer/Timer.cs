@@ -1,4 +1,4 @@
-using Names;
+using General.Constants;
 using UnityEngine;
 
 namespace HouseStage.Timer
@@ -23,7 +23,7 @@ namespace HouseStage.Timer
             
             if (CurrentSeconds <= 0)
             {
-                EventManager.Publish(EventNames.LoadNotebookScene);
+                EventManager.Publish(Names.LOAD_NOTEBOOK_SCENE);
             }
         }
     }

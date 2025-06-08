@@ -4,7 +4,7 @@ using Enums;
 namespace HouseStage.InteractableObjects
 {
     [Serializable]
-    public class ItemDescription
+    public class ItemDescriptionData
     {
         public ItemType itemType;
         public string description;

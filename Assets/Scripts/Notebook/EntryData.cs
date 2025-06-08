@@ -1,4 +1,5 @@
 using System;
+using Enums;
 
 namespace Notebook
 {
@@ -11,5 +12,6 @@ namespace Notebook
         public bool Merged { get; set; }
         public string Place { get; set; }
         public string EventName { get; set; }
+        public NotebookFieldType UnknownField { get; set; }
     }
 }

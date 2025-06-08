@@ -9,7 +9,7 @@ namespace HouseStage.Camera
         [SerializeField] private float rotateSpeed;
         [SerializeField] private float lookBorders;
 
-        private float _rotate;
+        private float _rotateAngle;
 
         private void Update()
         {
@@ -18,8 +18,8 @@ namespace HouseStage.Camera
 
         private void SetRotation()
         {
-            _rotate = Mathf.Clamp(_rotate + playerInput.LookDirection().y * rotateSpeed * Time.deltaTime, -lookBorders, lookBorders);
-            transform.rotation = Quaternion.Euler(-_rotate, transform.parent.eulerAngles.y, 0);
+            _rotateAngle = Mathf.Clamp(_rotateAngle + playerInput.LookDirection().y * rotateSpeed * Time.deltaTime, -lookBorders, lookBorders);
+            transform.rotation = Quaternion.Euler(-_rotateAngle, transform.parent.eulerAngles.y, 0);
         }
     }
 }

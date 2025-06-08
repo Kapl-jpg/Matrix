@@ -1,5 +1,5 @@
+using General.Constants;
 using General.Save;
-using Names;
 using TMPro;
 using UnityEngine;
 
@@ -17,7 +17,7 @@ namespace MapStage.Days
             PrintDay();
         }
 
-        [Event(EventNames.Map.MarkNewDay)]
+        [Event(Names.Map.MARK_NEW_DAY)]
         private void MarkNewDay()
         {
             _dayNumber++;

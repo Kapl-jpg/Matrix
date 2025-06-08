@@ -3,7 +3,7 @@ using General.Save;
 using Interfaces;
 using UnityEngine;
 
-namespace HouseStage.InteractableObjects
+namespace HouseStage.InteractableObjects.ItemSpawn
 {
     public class ItemSpawner : MonoBehaviour
     {
@@ -30,9 +30,7 @@ namespace HouseStage.InteractableObjects
                 tempData.Place = spawnPoint.place;
                 tempData.EventName = spawnData.eventName;
                 collectableItem.EntryData = tempData;
-                
-                item.TryGetComponent(out ICollectable collectable);
-                collectable?.SetName(SavePointName.GetName);
+                collectableItem.SetName(SavePointName.GetName);
             }
         }
     }

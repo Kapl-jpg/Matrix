@@ -1,5 +1,6 @@
+using General;
+using General.Constants;
 using Interfaces;
-using Names;
 using UnityEngine;
 
 namespace HouseStage.Player
@@ -32,7 +33,7 @@ namespace HouseStage.Player
                 if (_interactable == null)
                 {
                     hit.collider.TryGetComponent(out IInteractable interactable);
-                    EventManager.Publish(EventNames.House.ShowItemDescription, interactable.Type);
+                    EventManager.Publish(Names.House.SHOW_ITEM_DESCRIPTION, interactable.Type);
                     _interactable = interactable;
                 }
             }
@@ -40,7 +41,7 @@ namespace HouseStage.Player
             {
                 if (_interactable!=null)
                 {
-                    EventManager.Publish(EventNames.House.HideItemDescription);
+                    EventManager.Publish(Names.House.HIDE_ITEM_DESCRIPTION);
                     _interactable = null;
                 }
             }

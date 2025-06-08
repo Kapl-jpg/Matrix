@@ -1,4 +1,4 @@
-using Names;
+using General.Constants;
 using UnityEngine;
 
 namespace General
@@ -21,7 +21,7 @@ namespace General
             DontDestroyOnLoad(gameObject);
         }
         
-        [Event(EventNames.Click)]
+        [Event(Names.CLICK)]
         private void OnClick()
         {
             soundsSource.Play();

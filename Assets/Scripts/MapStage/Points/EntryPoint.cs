@@ -1,6 +1,5 @@
-using General;
+using General.Constants;
 using General.Save;
-using Names;
 using UnityEngine;
 
 namespace MapStage.Points
@@ -11,14 +10,14 @@ namespace MapStage.Points
 
         private PointData _currentPointData;
 
-        [Event(EventNames.Map.EnablePoint)]
+        [Event(Names.Map.ENABLE_POINT)]
         private void ShowEntryPoint(PointData data)
         {
             entryButton.SetActive(true);
             _currentPointData = data;
         }
     
-        [Event(EventNames.Map.DisablePoint)]
+        [Event(Names.Map.DISABLE_POINT)]
         private void HideEntryPoint()
         {
             entryButton?.SetActive(false);
@@ -28,13 +27,13 @@ namespace MapStage.Points
         {
             if (_currentPointData.IsLocked)
             {
-                EventManager.Publish(EventNames.Map.WaitNextDay,true);
+                EventManager.Publish(Names.Map.WAIT_NEXT_DAY,true);
                 return;
             }
         
             SavePointName.SetName(_currentPointData.Name);
-            EventManager.Publish(EventNames.Map.MarkNewDay);
-            EventManager.Publish(EventNames.LoadHouseScene);
+            EventManager.Publish(Names.Map.MARK_NEW_DAY);
+            EventManager.Publish(Names.LOAD_HOUSE_SCENE);
         }
     }
 }

@@ -1,4 +1,4 @@
-using Names;
+using General.Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,24 +8,24 @@ namespace General
     {
         public void LoadMainMenuScene()
         {
-            SceneManager.LoadScene(Constants.SceneNames.MAIN_MENU);
+            SceneManager.LoadScene(Names.Scenes.MAIN_MENU);
         }
 
         public void LoadMapScene()
         {
-            SceneManager.LoadScene(Constants.SceneNames.MAP);
+            SceneManager.LoadScene(Names.Scenes.MAP);
         }
 
-        [Event(EventNames.LoadHouseScene)]
+        [Event(Names.LOAD_HOUSE_SCENE)]
         public void LoadHouseScene()
         {
-            SceneManager.LoadScene(Constants.SceneNames.HOUSE);
+            SceneManager.LoadScene(Names.Scenes.HOUSE);
         }
 
-        [Event(EventNames.LoadNotebookScene)]
+        [Event(Names.LOAD_NOTEBOOK_SCENE)]
         public void LoadNotebookScene()
         {
-            SceneManager.LoadScene(Constants.SceneNames.NOTEBOOK);
+            SceneManager.LoadScene(Names.Scenes.NOTEBOOK);
         }
 
         public void QuitApplication()

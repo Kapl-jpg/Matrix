@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 479249405675397007}
-  - component: {fileID: 8874572413547334748}
   - component: {fileID: 142708031485694629}
+  - component: {fileID: 8874572413547334748}
   m_Layer: 6
   m_Name: USB Memory
   m_TagString: Untagged
@@ -35,19 +35,6 @@ Transform:
   - {fileID: 1647819522019991967}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 20.54, z: 0}
---- !u!114 &8874572413547334748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4639946583407344180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f23efb42d504cd5b0ec87bc8009bb68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Type>k__BackingField: 5
 --- !u!65 &142708031485694629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69,6 +56,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.14, y: 0.01, z: 0.06}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8874572413547334748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639946583407344180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f23efb42d504cd5b0ec87bc8009bb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Type>k__BackingField: 5
+  <UnknownInformationChance>k__BackingField: 0.2
 --- !u!1 &7329075488623691374
 GameObject:
   m_ObjectHideFlags: 0

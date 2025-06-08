@@ -1,4 +1,4 @@
-﻿using Names;
+﻿using General.Constants;
 using UnityEngine;
 
 namespace MapStage.Map
@@ -7,7 +7,7 @@ namespace MapStage.Map
     {
         [SerializeField] private GameObject lockPanel;
 
-        [Event(EventNames.Map.ShowLockText)] private void ShowLockText() => lockPanel.SetActive(true);
-        [Event(EventNames.Map.HideLockText)] private void HideLockText() => lockPanel.SetActive(false);
+        [Event(Names.Map.SHOW_LOCK_TEXT)] private void ShowLockText() => lockPanel.SetActive(true);
+        [Event(Names.Map.HIDE_LOCK_TEXT)] private void HideLockText() => lockPanel.SetActive(false);
     }
 }

@@ -1,7 +1,7 @@
 using Interfaces;
 using UnityEngine;
 
-namespace HouseStage.InteractableObjects
+namespace HouseStage.InteractableObjects.LinkedItems
 {
     public class LinkItem : MonoBehaviour, IMoveableItem
     {

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using General;
+using General.Constants;
 using MapStage.Points;
-using Names;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +13,7 @@ namespace MapStage.Map
 
         private readonly Dictionary<PointData, Image> _imageByData = new();
  
-        [Event(EventNames.Map.ClearMap)]
+        [Event(Names.Map.CLEAR_MAP)]
         private void Clear()
         {
             foreach (var image in _imageByData.Values)
@@ -25,14 +24,14 @@ namespace MapStage.Map
             _imageByData.Clear();
         }
 
-        [Event(EventNames.Map.AddPoint)]
+        [Event(Names.Map.ADD_POINT)]
         private void AddPoint((PointData pointData, GameObject point) parameters)
         {
             parameters.point.TryGetComponent(out Image pointImage);
             _imageByData.Add(parameters.pointData, pointImage);
         }
 
-        [Event(EventNames.Map.SelectPoint)]
+        [Event(Names.Map.SELECT_POINT)]
         private void ActivateButton(PointData pointData)
         {
             foreach (var image in _imageByData.Values)
@@ -46,7 +45,7 @@ namespace MapStage.Map
                 image.color = disableColor;
             }
             
-            EventManager.Publish(EventNames.Map.EnablePoint, pointData);
+            EventManager.Publish(Names.Map.ENABLE_POINT, pointData);
         }
 
         public void DisableAllMarkers()
@@ -56,7 +55,7 @@ namespace MapStage.Map
                 image.color = disableColor;
             }
             
-            EventManager.Publish(EventNames.Map.DisablePoint);
+            EventManager.Publish(Names.Map.DISABLE_POINT);
         }
     }
 }

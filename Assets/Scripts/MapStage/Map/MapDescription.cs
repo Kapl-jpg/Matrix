@@ -1,5 +1,5 @@
+using General.Constants;
 using MapStage.Points;
-using Names;
 using TMPro;
 using UnityEngine;
 
@@ -15,7 +15,7 @@ namespace MapStage.Map
         [SerializeField] private TMP_Text nameText;
         [SerializeField] private TMP_Text levelText;
 
-        [Event(EventNames.Map.EnablePoint)]
+        [Event(Names.Map.ENABLE_POINT)]
         private void ShowDescription(PointData pointData)
         {
             descriptionText.text = pointData.description;
@@ -27,7 +27,7 @@ namespace MapStage.Map
             level.SetActive(true);
         }
 
-        [Event(EventNames.Map.DisablePoint)]
+        [Event(Names.Map.DISABLE_POINT)]
         private void HideDescription()
         {
             description.SetActive(false);

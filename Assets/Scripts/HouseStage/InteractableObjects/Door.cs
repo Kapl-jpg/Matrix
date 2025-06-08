@@ -1,6 +1,6 @@
 using Enums;
+using General.Constants;
 using Interfaces;
-using Names;
 using UnityEngine;
 
 namespace HouseStage.InteractableObjects
@@ -10,7 +10,7 @@ namespace HouseStage.InteractableObjects
         [field:SerializeField] public ItemType Type { get; set; }
         public void Interact()
         {
-            EventManager.Publish(EventNames.LoadNotebookScene);
+            EventManager.Publish(Names.LOAD_NOTEBOOK_SCENE);
         }
     }
 }

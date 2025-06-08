@@ -4,7 +4,7 @@ namespace Interfaces
 {
     public interface IInteractable
     {
-        ItemType Type { get; set; }
+        ItemType Type { get; }
         void Interact();
     }
 }

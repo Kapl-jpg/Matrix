@@ -1,5 +1,5 @@
-using General;
-using Names;
+using Enums;
+using General.Constants;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,21 +32,25 @@ namespace Notebook
 
         private void SetText()
         {
-            nameText.text = _entryData.Name;
-            placeText.text = _entryData.Place;
-            eventText.text = _entryData.EventName;
+            nameText.text = GetName();
+            placeText.text = GetPlaceName();
+            eventText.text = GetEventName();
             dayText.text = _entryData.Day.ToString();
         }
 
         public void SelectEntry()
         {
-            EventManager.Publish(EventNames.Notebook.SelectNotebookEntry,_entryData);
+            EventManager.Publish(Names.Notebook.SELECT_NOTEBOOK_ENTRY,_entryData);
         }
 
         public void MergeEntry()
         {
-            EventManager.Publish(EventNames.Notebook.SelectMergeEntry, _entryData);
+            EventManager.Publish(Names.Notebook.SELECT_MERGE_ENTRY, _entryData);
         }
+
+        private string GetName() => _entryData.UnknownField == NotebookFieldType.Name ? "???" : _entryData.Name;
+        private string GetPlaceName() => _entryData.UnknownField == NotebookFieldType.Place ? "???" : _entryData.Place;
+        private string GetEventName() => _entryData.UnknownField == NotebookFieldType.EventName ? "???" : _entryData.EventName;
         
         public void ActivateEntry()
         {

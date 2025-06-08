@@ -1,5 +1,5 @@
 using System.Collections;
-using Names;
+using General.Constants;
 using UnityEngine;
 
 namespace MapStage.Days
@@ -9,7 +9,7 @@ namespace MapStage.Days
         [SerializeField] private GameObject unclickableMask;
         [SerializeField] private float waitTime;
         
-        [Event(EventNames.Map.WaitNextDay)]
+        [Event(Names.Map.WAIT_NEXT_DAY)]
         public void WaitNextDay(bool isLocked)
         {
             StartCoroutine(Wait(isLocked));
@@ -24,22 +24,22 @@ namespace MapStage.Days
 
         private void ClearMap(bool isLocked)
         {
-            EventManager.Publish(EventNames.Map.DisablePoint);
-            EventManager.Publish(EventNames.Map.ClearMap);
+            EventManager.Publish(Names.Map.DISABLE_POINT);
+            EventManager.Publish(Names.Map.CLEAR_MAP);
             
             if (isLocked)
-                EventManager.Publish(EventNames.Map.ShowLockText);
+                EventManager.Publish(Names.Map.SHOW_LOCK_TEXT);
             
             unclickableMask.SetActive(true);
         }
 
         private void RebuildMap(bool isLocked)
         {
-            EventManager.Publish(EventNames.Map.MarkNewDay);
-            EventManager.Publish(EventNames.Map.RebuildMap);
+            EventManager.Publish(Names.Map.MARK_NEW_DAY);
+            EventManager.Publish(Names.Map.REBUILD_MAP);
             
             if (isLocked)
-                EventManager.Publish(EventNames.Map.HideLockText);
+                EventManager.Publish(Names.Map.HIDE_LOCK_TEXT);
             
             unclickableMask.SetActive(false);
         }

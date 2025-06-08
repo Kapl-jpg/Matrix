@@ -5,6 +5,7 @@ namespace Interfaces
     public interface ICollectable
     {
         public EntryData EntryData { get; set; }
+        public float UnknownInformationChance { get; set; }
 
         public void SetName(string name)
         {

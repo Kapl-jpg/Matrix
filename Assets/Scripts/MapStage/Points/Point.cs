@@ -1,4 +1,4 @@
-﻿using Names;
+﻿using General.Constants;
 
 namespace MapStage.Points
 {
@@ -6,7 +6,7 @@ namespace MapStage.Points
     {
         private PointData _data;
 
-        [Event(true,EventNames.Map.SetPointParameters)]
+        [Event(true,Names.Map.SET_POINT_PARAMETERS)]
         private void SetPointParameters(PointData data)
         {
             _data = data;
@@ -14,7 +14,7 @@ namespace MapStage.Points
 
         public void ChosePoint()
         {
-            EventManager.Publish(EventNames.Map.SelectPoint, _data);
+            EventManager.Publish(Names.Map.SELECT_POINT, _data);
         }
     }
 }

@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-namespace HouseStage.InteractableObjects
+namespace HouseStage.InteractableObjects.ItemSpawn
 {
     [Serializable]
-    public class PositionData
+    public class ItemPositionData
     {
         public Transform point;
         public string place;

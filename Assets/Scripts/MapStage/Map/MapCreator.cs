@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using General.Constants;
 using General.Save;
 using MapStage.Points;
-using Names;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -48,7 +48,7 @@ namespace MapStage.Map
             _upperScreenPoint = Screen.height / 2;
         }
 
-        [Event(EventNames.Map.RebuildMap)]
+        [Event(Names.Map.REBUILD_MAP)]
         private void InstancePoints()
         {
             _dataByPoint = GenerateList();
@@ -61,8 +61,8 @@ namespace MapStage.Map
                 pointRect.anchoredPosition = new Vector2(CalculatePointPosition().x, CalculatePointPosition().y);
                 SetCorners(pointRect);
 
-                EventManager.Publish($"{point.GetInstanceID()}.{EventNames.Map.SetPointParameters}", data);
-                EventManager.Publish(EventNames.Map.AddPoint, (data, point));
+                EventManager.Publish($"{point.GetInstanceID()}.{Names.Map.SET_POINT_PARAMETERS}", data);
+                EventManager.Publish(Names.Map.ADD_POINT, (data, point));
             }
         }
 

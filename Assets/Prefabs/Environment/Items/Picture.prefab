@@ -2675,10 +2675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f23efb42d504cd5b0ec87bc8009bb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EntryData>k__BackingField:
-    place: 
-    eventName: 
   <Type>k__BackingField: 2
+  <UnknownInformationChance>k__BackingField: 0.2
 --- !u!1 &1973828990280300538
 GameObject:
   m_ObjectHideFlags: 0

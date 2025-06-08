@@ -100,10 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f23efb42d504cd5b0ec87bc8009bb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EntryData>k__BackingField:
-    place: 
-    eventName: 
   <Type>k__BackingField: 1
+  <UnknownInformationChance>k__BackingField: 0.2
 --- !u!65 &2146051176639083042
 BoxCollider:
   m_ObjectHideFlags: 0

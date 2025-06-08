@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using Enums;
+using General;
+using General.Constants;
 using HouseStage.InteractableObjects;
-using Names;
 using TMPro;
 using UnityEngine;
 
@@ -12,16 +13,16 @@ namespace HouseStage.UI
         [SerializeField] private GameObject descriptionPanel;
         [SerializeField] private TMP_Text descriptionText;
         
-        [SerializeField] private List<ItemDescription> itemDescriptions;
+        [SerializeField] private List<ItemDescriptionData> itemDescriptions;
         
-        [Event(EventNames.House.ShowItemDescription)]
+        [Event(Names.House.SHOW_ITEM_DESCRIPTION)]
         private void ShowItemDescription(ItemType itemType)
         {
             descriptionPanel.SetActive(true);
             descriptionText.text = DescriptionByType(itemType);
         }
         
-        [Event(EventNames.House.HideItemDescription)]
+        [Event(Names.House.HIDE_ITEM_DESCRIPTION)]
         private void HideItemDescription()
         {
             descriptionPanel.SetActive(false);
